@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Hi, {{ current_user.username }}!</h1>
+    {% if form %}
+    <form action="" method="post">
+    <p>
+        {{ form.hidden_tag() }}
+        {{ form.gewicht.label }}<br>
+        {{ form.gewicht }}<br>
+    </p>
+    <p>
+        {{ form.groesse.label }}<br>
+        {{ form.groesse }}<br>
+    </p>
+    <p>
+        {{ form.beschreibung.label }}<br>
+        {{ form.beschreibung(cols=64, rows=8) }}<br>
+    </p>
+
+    <p>{{ form.submit() }}</p>
+    </form>
+    {% endif %}
+   
+  
+
+    {% for eintrag in healthposts %}
+        {% include '_post.html' %}
+    {% endfor %}
+   
+    {% if prev_url %}
+    <a href="{{ prev_url }}">Newer posts</a>
+    {% endif %}
+    {% if next_url %}
+    <a href="{{ next_url }}">Older posts</a>
+    {% endif %}
+{% endblock %}
+ 

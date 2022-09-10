@@ -1,0 +1,36 @@
+    <table>
+
+        
+        <tr valign="top">
+            <td><img src="{{ eintrag.user.avatar(36) }}"></td>
+            <td><a href="{{ url_for('user', username=eintrag.user.username) }}">{{ eintrag.user.username }}</a> BMI: {{ eintrag.bmiwert }}
+            <br>Datum: <br>{{ eintrag.timestamp }}
+            <br>Gewicht: <br>{{ eintrag.gewicht }}
+            <br>Grösse: <br>{{ eintrag.groesse }}
+            <br>Beschreibung: <br>{{ eintrag.beschreibung }}
+
+            <p>
+                {% for kommentar in eintrag.get_kommentare() %}
+                <br><b>Kommentar von {{ kommentar.get_user() }}:</b> <br>{{ kommentar.kommentar }}<br>
+                {% endfor %}
+
+            {% if formkom %}
+            <br><form action="{{ url_for('kommentar', id=eintrag.id) }}" method="post">
+                {{ formkom.hidden_tag() }}
+                {{ formkom.submit(value='kommentieren') }}
+
+            </form>
+            {% endif %}
+        
+        
+        
+        
+            
+            </td>
+
+            
+    
+                     
+        </tr>
+       
+    </table>

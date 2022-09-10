@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Beitrag kommentieren</h1>
+    {% if form %}
+        <form action="" method="POST">
+            <p>
+                {{ form.hidden_tag() }}
+                {{ form.kommentar.label }}<br>
+                {{ form.kommentar(cols=64, rows=8) }}<br>
+            </p>
+            <p>{{ form.submit() }}</p>
+        </form>
+    {% endif %}
+   
+
+    {% for eintrag in healthposts %}
+        {% include '_post.html' %}
+    {% endfor %}
+   
+{% endblock %}
