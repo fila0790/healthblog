@@ -4,7 +4,7 @@ create a file named "var.env" with following environment varbiales in folder hea
 
 SECRET_KEY=secret
 
-DATABASE_URL=mysql+pymysql://"user":"key"@"containername db"/"db name"
+DATABASE_URL=mysql+pymysql://"user":"password"@"containername db"/"db name" (make sure the credentials in the file docker-compose.yml matches)
 
 FLASK_APP=healthblog.py
 
