@@ -1,6 +1,6 @@
 # healthblog
 
-create a file named "var.env" with following environment varbiales in folder healthblog/app:
+create a file named "var.env" with following environment varbiales in folder healthblog/app: (this will be used for the app and database credentials)
 
 SECRET_KEY=secret
 
